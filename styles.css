@@ -1,30 +1,27 @@
-/* --- UNIVERSAL STYLES (Applies to all pages) --- */
+/* --- UNIVERSAL STYLES --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* We don't need a background image on 'body' anymore because each page has a class */
 }
 
-/* 1. FIXED POSITIONING & Z-INDEX (Required for HW) */
+/* FIXED POSITIONING & Z-INDEX */
 .fixed-header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* Reaganesque slightly see-through header */
-    background-color: rgba(0, 34, 85, 0.95); 
-    color: white;
-    padding: 10px 0; /* Slightly tighter vertical padding */
+    background-color: rgba(0, 34, 85, 0.98); /* Solid dark blue */
+    padding: 10px 0;
     z-index: 100;
 }
 
-/* 2. FLOAT (Required for HW) - Links float RIGHT */
+/* FLOAT - Navigation */
 .nav-links {
     list-style-type: none;
     padding: 0;
     float: right; 
     margin-right: 50px;
-    margin-top: 5px; /* Aligns links vertically with title */
+    margin-top: 5px;
 }
 
 .nav-links li {
@@ -38,82 +35,113 @@ body {
     font-weight: bold;
 }
 
-/* Title floats LEFT */
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* FLOAT - Title (Fixed the invisible text here) */
 .site-title {
     float: left;
     margin: 0;
     margin-left: 20px;
     padding-top: 5px;
+    color: white; /* Forces the name to be white */
 }
 
-/* The semi-transparent content box (Shared by all pages) */
+/* Main Content Box */
 .content-container {
-    margin-top: 100px; /* Pushes content below fixed header */
+    margin-top: 100px; 
     padding: 30px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(255, 255, 255, 0.9); /* Reaganesque slight transparency */
+    background-color: rgba(255, 255, 255, 0.92); 
     box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
     border-radius: 8px;
-    margin-bottom: 50px; /* Bottom margin for scrolling space */
+    margin-bottom: 50px; 
 }
 
-/* 3. FLOAT (Required for HW) - Profile picture on index.html */
+/* FLOAT - Profile Image */
 .profile-float {
     float: left;
     margin-right: 25px;
     margin-bottom: 10px;
     border: 3px solid #002255;
-    border-radius: 4px; /* Slight roundness */
+    border-radius: 4px;
 }
 
-/* Styles for lists within lists (nested lists) */
-ul {
-    margin-top: 5px;
-}
+ul { margin-top: 5px; }
+ul ul { list-style-type: circle; }
 
-ul ul {
-    list-style-type: circle; /* Circles for inner lists */
-}
-
-h2 {
+h1, h2 {
     color: #002255;
+}
+h2 {
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
     margin-top: 30px;
 }
 
+/* --- HUB PAGE STYLES --- */
+.hub-container {
+    margin-top: 150px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+}
+
+.hub-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.hub-btn {
+    background-color: #002255;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    border: 2px solid transparent;
+}
+
+.hub-btn:hover {
+    background-color: white;
+    color: #002255;
+    border: 2px solid #002255;
+}
 
 /* --- UNIQUE PAGE BACKGROUNDS --- */
-
-/* Class for index.html - Blue Beach */
-.body-home {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+.body-hub {
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80');
+    background-size: cover; background-attachment: fixed; background-position: center;
 }
 
-/* Class for education.html - City Skyline */
+.body-resume {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80'); /* Beach */
+    background-size: cover; background-attachment: fixed; background-position: center;
+}
+
 .body-education {
-    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80'); /* Campus/City */
+    background-size: cover; background-attachment: fixed; background-position: center;
 }
 
-/* Class for experience.html - Modern Office */
 .body-experience {
-    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80'); /* Office */
+    background-size: cover; background-attachment: fixed; background-position: center;
 }
-/* Class for fishing.html - Ocean Water */
+
 .body-fishing {
-    background-image: url('https://images.unsplash.com/photo-1559235038-1b0fadf76f78?q=80');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1610969695426-1b4e545465d6?q=80'); /* Deep Ocean Water */
+    background-size: cover; background-attachment: fixed; background-position: center;
 }
