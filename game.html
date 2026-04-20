@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McCray Peart - Word Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles just for the game interface */
+        .game-box {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #002255;
+            margin-top: 20px;
+        }
+        #scrambled-word {
+            font-size: 2em;
+            letter-spacing: 5px;
+            color: #002255;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #hint {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 60%;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #002255;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #0044aa; }
+        #feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed-header">
+        <h2 class="site-title">McCray Peart</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Resume</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="fishing.html">Hobbies</a></li>
+            <li><a href="game.html">Word Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <header>
+            <h1>Hobby Scramble Generator</h1>
+            <p>Unscramble the words related to my favorite hobbies!</p>
+        </header>
+
+        <div class="game-box">
+            <div id="scrambled-word">LOADING...</div>
+            <div id="hint">Hint will appear here.</div>
+            
+            <input type="text" id="guess-input" placeholder="Type your guess here...">
+            <br>
+            <button onclick="checkGuess()">Submit Guess</button>
+            <button onclick="loadNewWord()" style="background-color: #666;">New Word</button>
+            
+            <div id="feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            { word: "SEABASS", hint: "Fishing: A prized catch off the coast of Southern California." },
+            { word: "WETSUIT", hint: "Surfing: Necessary for those cold Pacific mornings." },
+            { word: "MALLARD", hint: "Duck Hunting: A common green-headed target." },
+            { word: "DOSTOEVSKY", hint: "Classic Books: The complex author of Crime and Punishment." },
+            { word: "KARMANN", hint: "Classic Cars: Half of the name of a vintage 1970s VW." }
+        ];
+
+        let currentWordObj = {};
+
+        function shuffle(word) {
+            let arr = word.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        function loadNewWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            currentWordObj = words[randomIndex];
+            
+            document.getElementById("scrambled-word").innerText = shuffle(currentWordObj.word);
+            document.getElementById("hint").innerText = "Hint: " + currentWordObj.hint;
+            document.getElementById("guess-input").value = "";
+            document.getElementById("feedback").innerText = "";
+        }
+
+        function checkGuess() {
+            const guess = document.getElementById("guess-input").value.toUpperCase();
+            const feedback = document.getElementById("feedback");
+            
+            if (guess === currentWordObj.word) {
+                feedback.innerText = "Correct! Great job.";
+                feedback.style.color = "green";
+            } else {
+                feedback.innerText = "Not quite. Try again!";
+                feedback.style.color = "red";
+            }
+        }
+
+        // Load the first word when the page opens
+        window.onload = loadNewWord;
+    </script>
+</body>
+</html>
