@@ -39,13 +39,13 @@ body {
     text-decoration: underline;
 }
 
-/* FLOAT - Title (Fixed the invisible text here) */
+/* FLOAT - Title */
 .site-title {
     float: left;
     margin: 0;
     margin-left: 20px;
     padding-top: 5px;
-    color: white; /* Forces the name to be white */
+    color: white;
 }
 
 /* Main Content Box */
@@ -73,9 +73,7 @@ body {
 ul { margin-top: 5px; }
 ul ul { list-style-type: circle; }
 
-h1, h2 {
-    color: #002255;
-}
+h1, h2 { color: #002255; }
 h2 {
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
@@ -127,21 +125,22 @@ h2 {
 }
 
 .body-resume {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80'); /* Beach */
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80'); 
     background-size: cover; background-attachment: fixed; background-position: center;
 }
 
 .body-education {
-    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80'); /* Campus/City */
+    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80'); 
     background-size: cover; background-attachment: fixed; background-position: center;
 }
 
 .body-experience {
-    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80'); /* Office */
+    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80'); 
     background-size: cover; background-attachment: fixed; background-position: center;
 }
 
+/* FIXED: The web-safe ocean background image */
 .body-fishing {
-    background-image: url('https://images.unsplash.com/photo-1610969695426-1b4e545465d6?q=80'); /* Deep Ocean Water */
+    background-image: url('https://images.unsplash.com/photo-1610969695426-1b4e545465d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
     background-size: cover; background-attachment: fixed; background-position: center;
 }
